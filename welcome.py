@@ -96,7 +96,10 @@ sleep(1)
 lcd.message("Ingrese contrasenia ")
 lcd.set_cursor(row=3)
 lcd.message("       ------       ")
-sleep(3)
+sleep(10)
+
+lcd.set_backlight(False)
+
 
 '''
 

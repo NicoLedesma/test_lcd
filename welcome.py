@@ -1,4 +1,5 @@
 # requires RPi_I2C_driver.py
+# -*- coding: utf-8 -*-
 import RPi_I2C_LCD
 from time import *
 
@@ -11,7 +12,7 @@ lcd.message("    Bienvenidos a   ")
 lcd.set_cursor(row=1)
 lcd.message("     PEPECITO'S     ")
 lcd.set_cursor(row=2)
-lcd.message("Ingresar contrasena ")
+lcd.message("Ingrese contraseña ")
 lcd.set_cursor(row=3)
 lcd.message("       ******       ")
 sleep(10)

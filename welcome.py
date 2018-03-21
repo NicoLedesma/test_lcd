@@ -28,22 +28,25 @@ font_data_1 = [
 
 #Sistema KASP
 lcd.clear()
+sleep(1)
 lcd.set_cursor(row=0)
 lcd.message("    SISTEMA DE     ")
-lcd.set_cursor(row=1)
 sleep(1)
+lcd.set_cursor(row=1)
 lcd.message("    ASISTENCIA     ")
+sleep(1)
 lcd.set_cursor(row=2)
 lcd.message("      *******      ")
 sleep(1)
 lcd.set_cursor(row=3)
 lcd.message("       KASP        ")
-sleep(5)
+sleep(4)
 
 
 # load logo chars (font_data_1)
 lcd.load_custom_chars(font_data_1)
 # Write first three chars to row 1 directly
+lcd.clear()
 lcd.set_cursor(col=8, row=1)
 lcd.write_char(0)
 lcd.write_char(1)
@@ -57,16 +60,18 @@ sleep(4)
 
 # Welcome banner
 lcd.clear()
+sleep(1)
 lcd.set_cursor(row=0)
 lcd.message("    Bienvenidos a   ")
+sleep(1)
 lcd.set_cursor(row=1)
 lcd.message("     PEPECITO'S     ")
 lcd.set_cursor(row=2)
-sleep(2)
+sleep(1)
 lcd.message("Ingrese contrasenia ")
 lcd.set_cursor(row=3)
 lcd.message("       ------       ")
-sleep(5)
+sleep(3)
 
 '''
 

@@ -102,7 +102,7 @@ lcd.write_char(5)
 sleep(4)
 welcome_banner()
 
-while(a=True):
+while(a==True):
     salir = raw_input()
     lcd.set_cursor(row=3)
 

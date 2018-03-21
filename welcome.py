@@ -37,7 +37,7 @@ sleep(1)
 lcd.set_cursor(row=2, col=5)
 lcd.message("......")
 sleep(1)
-lcd.set_cursor(row=3, col=2)
+lcd.set_cursor(row=3, col=0)
 lcd.message("por favor espere...")
 sleep(4)
 
@@ -63,7 +63,7 @@ lcd.set_cursor(row=2)
 lcd.message("      *******      ")
 sleep(1)
 lcd.set_cursor(row=3)
-lcd.message("       KASP        ")
+lcd.message("        KASP       ")
 sleep(4)
 
 

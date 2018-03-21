@@ -7,14 +7,14 @@ lcd.set_backlight(True)
 
 # first banner
 lcd.set_cursor(row=0)
-lcd.message("Bienvenido a PEPECITO'S")
+lcd.message("    Bienvenidos a    ")
 lcd.set_cursor(row=1)
-lcd.message("fecha: 25/05/1977")
+lcd.message("     PEPECITO'S      ")
 lcd.set_cursor(row=2)
-lcd.message("Por favor ingrese su contrasena")
+lcd.message("Ingrese su contrasena")
 lcd.set_cursor(row=3)
-lcd.message("******")
-sleep(2)
+lcd.message("       ******       ")
+sleep(10)
 
 '''
 # funny face

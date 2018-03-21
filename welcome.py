@@ -6,6 +6,7 @@ from time import *
 lcd = RPi_I2C_LCD.LCD()
 lcd.set_backlight(True)
 
+a = True
 # funny face - genero el array con la carita
 # let's define a custom icon, consisting of 6 individual characters
 # 3 chars in the first row and 3 chars in the second row
@@ -25,6 +26,24 @@ font_data_1 = [
     # Char 6 - my test
     [0x1f, 0x0, 0x4, 0xe, 0x0, 0x1f, 0x1f, 0x1f],
 ]
+
+# Welcome banner
+def welcome_banner():
+    lcd.clear()
+    sleep(1)
+    lcd.set_cursor(row=0)
+    lcd.message("    Bienvenidos a   ")
+    sleep(1)
+    lcd.set_cursor(row=1)
+    lcd.message("     PEPECITO'S     ")
+    lcd.set_cursor(row=2)
+    sleep(1)
+    lcd.message("Ingrese contrasenia ")
+    lcd.set_cursor(row=3)
+    lcd.message("       ------       ")
+    sleep(1)
+    #lcd.set_backlight(False)
+
 
 # Testing lines...
 lcd.clear()
@@ -81,25 +100,19 @@ lcd.write_char(3)
 lcd.write_char(4)
 lcd.write_char(5)
 sleep(4)
+welcome_banner()
 
+while(a=True):
+    salir = raw_input()
+    lcd.set_cursor(row=3)
 
-# Welcome banner
-lcd.clear()
-sleep(1)
-lcd.set_cursor(row=0)
-lcd.message("    Bienvenidos a   ")
-sleep(1)
-lcd.set_cursor(row=1)
-lcd.message("     PEPECITO'S     ")
-lcd.set_cursor(row=2)
-sleep(1)
-lcd.message("Ingrese contrasenia ")
-lcd.set_cursor(row=3)
-lcd.message("       ------       ")
-sleep(10)
-
-lcd.set_backlight(False)
-
+    if(salir=="*"):
+        a=False
+        break
+    else:
+        lcd.message("hola nico")
+        sleep(2)
+        welcome_banner()
 
 '''
 

@@ -26,12 +26,36 @@ font_data_1 = [
     [0x1f, 0x0, 0x4, 0xe, 0x0, 0x1f, 0x1f, 0x1f],
 ]
 
+# Testing lines...
+lcd.clear()
+lcd.set_cursor(row=0)
+lcd.message("loading...")
+sleep(1)
+lcd.set_cursor(row=1, col=2)
+lcd.message("loading...")
+sleep(1)
+lcd.set_cursor(row=2, col=4)
+lcd.message("loading...")
+sleep(1)
+lcd.set_cursor(row=3, col=6)
+lcd.message("por favor espere...")
+sleep(4)
+
+# Testing on/off back light
+lcd.clear()
+lcd.set_backlight(False)
+lcd.set_cursor(row=0)
+lcd.message("...probando backlight...")
+lcd.set_cursor(row=1)
+lcd.message("prendiendo en 2 seg.")
+sleep(2)
+lcd.set_backlight(True)
+
 #Sistema KASP
 lcd.clear()
 sleep(1)
 lcd.set_cursor(row=0)
 lcd.message("    SISTEMA DE     ")
-sleep(1)
 lcd.set_cursor(row=1)
 lcd.message("    ASISTENCIA     ")
 sleep(1)
@@ -58,6 +82,7 @@ lcd.write_char(4)
 lcd.write_char(5)
 sleep(4)
 
+
 # Welcome banner
 lcd.clear()
 sleep(1)
@@ -75,33 +100,6 @@ sleep(3)
 
 '''
 
-
-# Testing on/off back light
-lcd.clear()
-lcd.set_backlight(False)
-lcd.set_cursor(row=0)
-lcd.message("turn off back light")
-lcd.set_cursor(row=1)
-lcd.message("turn on in 4s")
-sleep(4)
-lcd.set_backlight(True)
-
-# Testing lines...
-lcd.clear()
-lcd.set_cursor(row=0)
-lcd.message("Testing")
-sleep(1)
-lcd.set_cursor(row=1, col=2)
-lcd.message("Testing")
-sleep(1)
-lcd.set_cursor(row=2, col=4)
-lcd.message("Testing")
-sleep(1)
-lcd.set_cursor(row=3, col=6)
-lcd.message("Testing")
-sleep(4)
-
-lcd.clear()
 # Now let's define some more custom characters
 font_data_2 = [
     # Char 0 - left arrow

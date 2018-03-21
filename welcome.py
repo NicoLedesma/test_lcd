@@ -29,7 +29,7 @@ font_data_1 = [
 # Testing lines...
 lcd.clear()
 lcd.set_cursor(row=0)
-lcd.message("loading...")
+lcd.message("cargando...")
 sleep(1)
 lcd.set_cursor(row=1, col=3)
 lcd.message("......")

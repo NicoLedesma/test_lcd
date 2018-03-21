@@ -7,7 +7,6 @@ lcd = RPi_I2C_LCD.LCD()
 lcd.set_backlight(True)
 
 # funny face - genero el array con la carita
-lcd.clear()
 # let's define a custom icon, consisting of 6 individual characters
 # 3 chars in the first row and 3 chars in the second row
 font_data_1 = [
@@ -27,6 +26,21 @@ font_data_1 = [
     [0x1f, 0x0, 0x4, 0xe, 0x0, 0x1f, 0x1f, 0x1f],
 ]
 
+#Sistema KASP
+lcd.clear()
+lcd.set_cursor(row=0)
+lcd.message("    SISTEMA DE     ")
+lcd.set_cursor(row=1)
+sleep(1)
+lcd.message("    ASISTENCIA     ")
+lcd.set_cursor(row=2)
+lcd.message("      *******      ")
+sleep(1)
+lcd.set_cursor(row=3)
+lcd.message("       KASP        ")
+sleep(5)
+
+
 # load logo chars (font_data_1)
 lcd.load_custom_chars(font_data_1)
 # Write first three chars to row 1 directly
@@ -39,7 +53,7 @@ lcd.set_cursor(col=8, row=2)
 lcd.write_char(3)
 lcd.write_char(4)
 lcd.write_char(5)
-sleep(3)
+sleep(4)
 
 # Welcome banner
 lcd.clear()
@@ -48,9 +62,10 @@ lcd.message("    Bienvenidos a   ")
 lcd.set_cursor(row=1)
 lcd.message("     PEPECITO'S     ")
 lcd.set_cursor(row=2)
+sleep(2)
 lcd.message("Ingrese contrasenia ")
 lcd.set_cursor(row=3)
-lcd.message("       ******       ")
+lcd.message("       ------       ")
 sleep(5)
 
 '''

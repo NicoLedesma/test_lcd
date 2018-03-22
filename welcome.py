@@ -97,7 +97,7 @@ def propaganda():
     lcd.set_cursor(row=0)
     lcd.message("        KASP       ")
     lcd.set_cursor(row=1)
-    lcd.message("      *******      ")
+    lcd.message("      -------      ")
     sleep(1)
     lcd.set_cursor(row=2)
     lcd.message("     SISTEMA DE    ")
@@ -117,9 +117,12 @@ welcome_banner()
 #Para tomar la contrasenia desde el teclado
 getch = getCharacter._Getch()
 pw = []
+pws = [] #password to show into display lcd
+count = 0
 while(a==True):
     teclaPulsada=getch.__call__()
     pw.append(teclaPulsada)
+    pw1.append("*")
 
     if(teclaPulsada=="*"):
         a=False
@@ -127,7 +130,7 @@ while(a==True):
         break
     else:
         lcd.set_cursor(col=7, row=3)
-        lcd.message(pw)
+        lcd.message(pw1)
         if(len(pw)>=6):
             #TODO: chequear que el pw concuerde con algun alumno
             #TODO: grabar el ingreso o egreso en la base de datos local (sqlite?)

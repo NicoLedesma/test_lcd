@@ -80,7 +80,7 @@ lcd.message("     ASISTENCIA    ")
 sleep(1)
 lcd.set_cursor(row=2)
 lcd.message("      *******      ")
-sleep(1)s
+sleep(1)
 lcd.set_cursor(row=3)
 lcd.message("        KASP       ")
 sleep(4)

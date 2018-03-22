@@ -122,7 +122,7 @@ count = 0
 while(a==True):
     teclaPulsada=getch.__call__()
     pw.append(teclaPulsada)
-    pw1.append("*")
+    pws.append("*")
 
     if(teclaPulsada=="*"):
         a=False
@@ -130,7 +130,7 @@ while(a==True):
         break
     else:
         lcd.set_cursor(col=7, row=3)
-        lcd.message(pw1)
+        lcd.message(pws)
         if(len(pw)>=6):
             #TODO: chequear que el pw concuerde con algun alumno
             #TODO: grabar el ingreso o egreso en la base de datos local (sqlite?)

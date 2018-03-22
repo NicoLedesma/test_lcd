@@ -3,6 +3,7 @@
 import RPi_I2C_LCD
 from time import *
 import getCharacter
+import time
 
 lcd = RPi_I2C_LCD.LCD()
 lcd.set_backlight(True)
@@ -129,11 +130,13 @@ while(a==True):
         lcd.message(pw)
         if(len(pw)>=6):
             #TODO: chequear que el pw concuerde con algun alumno
+            #TODO: grabar el ingreso o egreso en la base de datos local (sqlite?)
             pw = []
             sleep(0.3)
             lcd.clear()
             lcd.set_cursor(col=1, row=1)
-            lcd.message("Bienvenido NICO!!")#TODO: que muestre el nombre del alumno
+            lcd.message("Bienvenido NICO!!")
+            #TODO: aca deberia mostrar el nombre del alumno
             lcd.set_cursor(col=1, row=2)
             fecha = time.strftime("%d/%m/%y")
             lcd.message("Hoy es: {}".format(fecha))
@@ -142,7 +145,3 @@ while(a==True):
             lcd.message("hora: {}".format(hora))
             sleep(3)
             welcome_banner()
-
-
-
-        #sleep(2)

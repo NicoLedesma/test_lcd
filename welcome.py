@@ -28,6 +28,23 @@ font_data_1 = [
     [0x1f, 0x0, 0x4, 0xe, 0x0, 0x1f, 0x1f, 0x1f],
 ]
 
+# load logo chars (font_data_1)
+def carita():
+    lcd.load_custom_chars(font_data_1)
+    # Write first three chars to row 1 directly
+    lcd.clear()
+    lcd.set_cursor(col=8, row=1)
+    lcd.write_char(0)
+    lcd.write_char(1)
+    lcd.write_char(2)
+    # Write next three chars to row 2 directly
+    lcd.set_cursor(col=8, row=2)
+    lcd.write_char(3)
+    lcd.write_char(4)
+    lcd.write_char(5)
+    sleep(4)
+
+
 # Welcome banner
 def welcome_banner():
     lcd.clear()
@@ -46,19 +63,20 @@ def welcome_banner():
 
 
 # Testing lines...
-lcd.clear()
-lcd.set_cursor(row=0)
-lcd.message("iniciando......")
-sleep(1)
-lcd.set_cursor(row=1, col=3)
-lcd.message("......")
-sleep(1)
-lcd.set_cursor(row=2, col=6)
-lcd.message("......")
-sleep(1)
-lcd.set_cursor(row=3, col=0)
-lcd.message("por favor espere...")
-sleep(3)
+def testingLines():
+    lcd.clear()
+    lcd.set_cursor(row=0)
+    lcd.message("iniciando......")
+    sleep(1)
+    lcd.set_cursor(row=1, col=3)
+    lcd.message("......")
+    sleep(1)
+    lcd.set_cursor(row=2, col=6)
+    lcd.message("......")
+    sleep(1)
+    lcd.set_cursor(row=3, col=0)
+    lcd.message("por favor espere...")
+    sleep(3)
 
 # Testing on/off back light
 '''lcd.clear()
@@ -72,41 +90,33 @@ lcd.set_backlight(True)
 '''
 
 #Sistema KASP
-lcd.clear()
-sleep(1)
-lcd.set_cursor(row=0)
-lcd.message("     SISTEMA DE    ")
-lcd.set_cursor(row=1)
-lcd.message("     ASISTENCIA    ")
-sleep(1)
-lcd.set_cursor(row=2)
-lcd.message("      *******      ")
-sleep(1)
-lcd.set_cursor(row=3)
-lcd.message("        KASP       ")
-sleep(4)
+def propaganda():
+    lcd.clear()
+    sleep(1)
+    lcd.set_cursor(row=0)
+    lcd.message("     SISTEMA DE    ")
+    lcd.set_cursor(row=1)
+    lcd.message("     ASISTENCIA    ")
+    sleep(1)
+    lcd.set_cursor(row=2)
+    lcd.message("      *******      ")
+    sleep(1)
+    lcd.set_cursor(row=3)
+    lcd.message("        KASP       ")
+    sleep(4)
 
+testingLines()
 
-# load logo chars (font_data_1)
-lcd.load_custom_chars(font_data_1)
-# Write first three chars to row 1 directly
-lcd.clear()
-lcd.set_cursor(col=8, row=1)
-lcd.write_char(0)
-lcd.write_char(1)
-lcd.write_char(2)
-# Write next three chars to row 2 directly
-lcd.set_cursor(col=8, row=2)
-lcd.write_char(3)
-lcd.write_char(4)
-lcd.write_char(5)
-sleep(4)
+propaganda()
+
+carita()
 
 welcome_banner()
+
+#Para tomar la contrasenia desde el teclado
 getch = getCharacter._Getch()
 pw = []
 while(a==True):
-    #salir = raw_input()
     teclaPulsada=getch.__call__()
     pw.append(teclaPulsada)
 
@@ -115,6 +125,16 @@ while(a==True):
         welcome_banner()
         break
     else:
-        lcd.set_cursor(col=8, row=3)
+        lcd.set_cursor(col=7, row=3)
         lcd.message(pw)
+        if(len(pw)=>6):
+            sleep(0.3)
+            lcd.clear()
+            lcd.set_cursor(col=1, row=1)
+            lcd.message("Bienvenido NICO!!")
+            sleep(3)
+            welcome_banner()
+
+
+
         #sleep(2)

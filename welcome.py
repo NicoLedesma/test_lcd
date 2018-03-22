@@ -147,8 +147,6 @@ while(a==True):
                 #TODO: grabar el ingreso o egreso en la base de datos local (sqlite?)
                 #TODO: cargar elnickname de la base de datos
                 nickname = "Nico"
-                pw = []
-                pws = []
                 lcd.clear()
                 lcd.set_cursor(col=1, row=0)
                 sleep(0.3)
@@ -168,3 +166,5 @@ while(a==True):
                 lcd.message("Error de contrasenia")
                 sleep(3)
                 welcome_banner()
+            pw = []
+            pws = []

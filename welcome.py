@@ -142,7 +142,7 @@ while(a==True):
         if(len(pw)>=6):
             #try hacerlo con try-catch
             #TODO: Traer el alumno objeto de la base de datos local a partir de la contrasenia
-            pwFromDB = "1234" #password de la base de datos no haria falta
+            pwFromDB = "123456" #password de la base de datos no haria falta
             if(pw==pwFromDB): # si existe el alumno haria esto (hay que cambiar esto)
                 #TODO: grabar el ingreso o egreso en la base de datos local (sqlite?)
                 #TODO: cargar elnickname de la base de datos
@@ -166,4 +166,5 @@ while(a==True):
                 lcd.clear()
                 lcd.set_cursor(col=0, row=1)
                 lcd.message("Error de contrasenia")
+                sleep(3)
                 welcome_banner()

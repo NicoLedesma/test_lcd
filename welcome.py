@@ -127,7 +127,7 @@ while(a==True):
     else:
         lcd.set_cursor(col=7, row=3)
         lcd.message(pw)
-        if(len(pw)=>6):
+        if(len(pw)>=6):
             sleep(0.3)
             lcd.clear()
             lcd.set_cursor(col=1, row=1)

@@ -56,7 +56,7 @@ def welcome_banner():
     lcd.message("     PEPECITO'S     ")
     lcd.set_cursor(row=2)
     sleep(1)
-    lcd.message("Ingrese contrasenia ")
+    lcd.message("   Ingrese clave   ")
     lcd.set_cursor(row=3)
     lcd.message("       ------       ")
     sleep(1)
@@ -106,7 +106,7 @@ def propaganda():
     lcd.message("     ASISTENCIA    ")
     sleep(4)
 
-testingLines()
+#testingLines()
 
 propaganda()
 
@@ -163,7 +163,7 @@ while(a==True):
             else:
                 lcd.clear()
                 lcd.set_cursor(col=0, row=1)
-                lcd.message("Error de contraseña")
+                lcd.message("Clave erronea")
                 sleep(3)
                 welcome_banner()
             pw = ""

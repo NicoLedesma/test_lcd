@@ -77,7 +77,7 @@ def testingLines():
     sleep(1)
     lcd.set_cursor(row=3, col=0)
     lcd.message("por favor espere...")
-    sleep(3)
+
 
 # Testing on/off back light
 '''lcd.clear()

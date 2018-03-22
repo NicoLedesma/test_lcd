@@ -102,11 +102,11 @@ lcd.write_char(5)
 sleep(4)
 
 welcome_banner()
+getch = _Getch()
 pw = []
 while(a==True):
     #salir = raw_input()
     lcd.set_cursor(col=8, row=3)
-    getch = _Getch()
     teclaPulsada=getch.__call__()
     pw.append(teclaPulsada)
 

@@ -33,7 +33,6 @@ def welcome_banner():
     sleep(1)
     lcd.set_cursor(row=0)
     lcd.message("    Bienvenidos a   ")
-    sleep(1)
     lcd.set_cursor(row=1)
     lcd.message("     PEPECITO'S     ")
     lcd.set_cursor(row=2)
@@ -100,11 +99,13 @@ lcd.write_char(3)
 lcd.write_char(4)
 lcd.write_char(5)
 sleep(4)
+
 welcome_banner()
 
 while(a==True):
     salir = raw_input()
-    lcd.set_cursor(row=3)
+    lcd.set_cursor(col=8, row=3)
+    lcd.message
 
     if(salir=="*"):
         a=False
@@ -114,6 +115,7 @@ while(a==True):
         sleep(2)
         welcome_banner()
 
+lcd.set_backlight(False)
 '''
 
 # Now let's define some more custom characters

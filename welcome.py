@@ -137,7 +137,7 @@ while(a==True):
             sleep(0.3)
             lcd.clear()
             lcd.set_cursor(col=1, row=0)
-            lcd.message("Bienvenido {}!".format(nickname)
+            lcd.message("Bienvenido {}!".format(nickname))
             #TODO: aca deberia mostrar el nombre del alumno
             lcd.set_cursor(col=1, row=2)
             fecha = time.strftime("%d/%m/%y")

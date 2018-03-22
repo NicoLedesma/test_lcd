@@ -126,7 +126,8 @@ while(a==True):
 
     if(teclaPulsada=="*"):
         a=False
-        welcome_banner()
+        lcd.set_cursor(col=5, row=1)
+        lcd.message("Chau!!")
         break
     else:
         lcd.set_cursor(col=7, row=3)
@@ -138,9 +139,9 @@ while(a==True):
             nickname = "Nico"
             pw = []
             pws = []
-            sleep(0.3)
             lcd.clear()
             lcd.set_cursor(col=1, row=0)
+            sleep(0.3)
             lcd.message("Bienvenido {}!".format(nickname))
             #TODO: aca deberia mostrar el nombre del alumno
             lcd.set_cursor(col=1, row=2)
@@ -149,5 +150,5 @@ while(a==True):
             lcd.set_cursor(col=1, row=3)
             hora = time.strftime("%H:%M")
             lcd.message("hora: {}".format(hora))
-            sleep(3)
+            sleep(5)
             welcome_banner()

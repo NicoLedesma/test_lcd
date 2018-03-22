@@ -128,10 +128,18 @@ while(a==True):
         lcd.set_cursor(col=7, row=3)
         lcd.message(pw)
         if(len(pw)>=6):
+            #TODO: chequear que el pw concuerde con algun alumno
+            pw = []
             sleep(0.3)
             lcd.clear()
             lcd.set_cursor(col=1, row=1)
-            lcd.message("Bienvenido NICO!!")
+            lcd.message("Bienvenido NICO!!")#TODO: que muestre el nombre del alumno
+            lcd.set_cursor(col=1, row=2)
+            fecha = time.strftime("%d/%m/%y")
+            lcd.message("Hoy es: {}".format(fecha))
+            lcd.set_cursor(col=1, row=3)
+            hora = time.strftime("%H:%M")
+            lcd.message("hora: {}".format(hora))
             sleep(3)
             welcome_banner()
 

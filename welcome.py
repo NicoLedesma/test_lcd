@@ -67,7 +67,7 @@ def welcome_banner():
 def testingLines():
     lcd.clear()
     lcd.set_cursor(row=0)
-    lcd.message("iniciando......")
+    lcd.message("...iniciando......")
     sleep(1)
     lcd.set_cursor(row=1, col=3)
     lcd.message("......")
@@ -95,15 +95,15 @@ def propaganda():
     lcd.clear()
     sleep(1)
     lcd.set_cursor(row=0)
-    lcd.message("     SISTEMA DE    ")
+    lcd.message("        KASP       ")
     lcd.set_cursor(row=1)
-    lcd.message("     ASISTENCIA    ")
-    sleep(1)
-    lcd.set_cursor(row=2)
     lcd.message("      *******      ")
     sleep(1)
+    lcd.set_cursor(row=2)
+    lcd.message("     SISTEMA DE    ")
+    sleep(1)
     lcd.set_cursor(row=3)
-    lcd.message("        KASP       ")
+    lcd.message("     ASISTENCIA    ")
     sleep(4)
 
 testingLines()
@@ -131,11 +131,13 @@ while(a==True):
         if(len(pw)>=6):
             #TODO: chequear que el pw concuerde con algun alumno
             #TODO: grabar el ingreso o egreso en la base de datos local (sqlite?)
+            #TODO: cargar elnickname de la base de datos
+            nickname = "Nico"
             pw = []
             sleep(0.3)
             lcd.clear()
-            lcd.set_cursor(col=1, row=1)
-            lcd.message("Bienvenido NICO!!")
+            lcd.set_cursor(col=1, row=0)
+            lcd.message("Bienvenido {}!".format(nickname)
             #TODO: aca deberia mostrar el nombre del alumno
             lcd.set_cursor(col=1, row=2)
             fecha = time.strftime("%d/%m/%y")

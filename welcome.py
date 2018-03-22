@@ -102,7 +102,7 @@ lcd.write_char(5)
 sleep(4)
 
 welcome_banner()
-getch = _Getch()
+getch = Getch()
 pw = []
 while(a==True):
     #salir = raw_input()

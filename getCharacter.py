@@ -36,7 +36,7 @@ class _GetchWindows:
 	def __call__(self):
 		import msvcrt
 		return msvcrt.getch()
-
+'''
 a = True
 while(a==True):
     getch = _Getch()
@@ -47,3 +47,4 @@ while(a==True):
         print "La tecla pulsada ha sido",teclaPulsada
     else:
         a=False
+'''

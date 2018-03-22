@@ -106,11 +106,11 @@ def propaganda():
     lcd.message("     ASISTENCIA    ")
     sleep(4)
 
-testingLines()
+#testingLines()
 
 propaganda()
 
-carita()
+#carita()
 
 welcome_banner()
 
@@ -137,6 +137,7 @@ while(a==True):
             #TODO: cargar elnickname de la base de datos
             nickname = "Nico"
             pw = []
+            pws = []
             sleep(0.3)
             lcd.clear()
             lcd.set_cursor(col=1, row=0)

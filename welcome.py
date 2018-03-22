@@ -126,6 +126,7 @@ while(a==True):
 
     if(teclaPulsada=="*"):
         a=False
+        lcd.clear()
         lcd.set_cursor(col=5, row=1)
         lcd.message("Chau!!")
         break

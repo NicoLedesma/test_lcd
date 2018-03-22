@@ -116,12 +116,12 @@ welcome_banner()
 
 #Para tomar la contrasenia desde el teclado
 getch = getCharacter._Getch()
-pw = []
+pw = ""
 pws = [] #password to show into display lcd
 count = 0
 while(a==True):
     teclaPulsada=getch.__call__()
-    pw.append(teclaPulsada)
+    pw+=teclaPulsada
     pws.append("*")
 
     if(teclaPulsada=="*"):
@@ -166,5 +166,5 @@ while(a==True):
                 lcd.message("Error de contrasenia")
                 sleep(3)
                 welcome_banner()
-            pw = []
+            pw = ""
             pws = []

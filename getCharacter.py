@@ -1,7 +1,7 @@
 '''Clase para obtener un simple caracter desde la consola sin pulsar la
 	tecla enter'''
 
-class Getch:
+class _Getch:
 	def __init__(self):
 		try:
 			self.impl = _GetchWindows()

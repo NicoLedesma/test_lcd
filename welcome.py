@@ -163,7 +163,7 @@ while(a==True):
             else:
                 lcd.clear()
                 lcd.set_cursor(col=0, row=1)
-                lcd.message("Error de contrasenia")
+                lcd.message("Error de contraseña")
                 sleep(3)
                 welcome_banner()
             pw = ""

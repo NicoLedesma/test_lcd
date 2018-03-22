@@ -48,20 +48,20 @@ def welcome_banner():
 # Testing lines...
 lcd.clear()
 lcd.set_cursor(row=0)
-lcd.message("cargando...")
+lcd.message("iniciando......")
 sleep(1)
 lcd.set_cursor(row=1, col=3)
 lcd.message("......")
 sleep(1)
-lcd.set_cursor(row=2, col=5)
+lcd.set_cursor(row=2, col=6)
 lcd.message("......")
 sleep(1)
 lcd.set_cursor(row=3, col=0)
 lcd.message("por favor espere...")
-sleep(4)
+sleep(3)
 
 # Testing on/off back light
-lcd.clear()
+'''lcd.clear()
 lcd.set_backlight(False)
 lcd.set_cursor(row=0)
 lcd.message("...probando backlight...")
@@ -69,6 +69,7 @@ lcd.set_cursor(row=1)
 lcd.message("prendiendo en 2 seg.")
 sleep(2)
 lcd.set_backlight(True)
+'''
 
 #Sistema KASP
 lcd.clear()
@@ -106,14 +107,14 @@ getch = getCharacter._Getch()
 pw = []
 while(a==True):
     #salir = raw_input()
-    lcd.set_cursor(col=8, row=3)
     teclaPulsada=getch.__call__()
     pw.append(teclaPulsada)
 
     if(teclaPulsada=="*"):
         a=False
+        welcome_banner()
         break
     else:
+        lcd.set_cursor(col=8, row=3)
         lcd.message(pw)
         #sleep(2)
-        #welcome_banner()

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import RPi_I2C_LCD
 from time import *
+import getCharacter
 
 lcd = RPi_I2C_LCD.LCD()
 lcd.set_backlight(True)
@@ -73,13 +74,13 @@ lcd.set_backlight(True)
 lcd.clear()
 sleep(1)
 lcd.set_cursor(row=0)
-lcd.message("    SISTEMA DE     ")
+lcd.message("     SISTEMA DE    ")
 lcd.set_cursor(row=1)
-lcd.message("    ASISTENCIA     ")
+lcd.message("     ASISTENCIA    ")
 sleep(1)
 lcd.set_cursor(row=2)
 lcd.message("      *******      ")
-sleep(1)
+sleep(1)s
 lcd.set_cursor(row=3)
 lcd.message("        KASP       ")
 sleep(4)
@@ -101,21 +102,23 @@ lcd.write_char(5)
 sleep(4)
 
 welcome_banner()
-
+pw = []
 while(a==True):
-    salir = raw_input()
+    #salir = raw_input()
     lcd.set_cursor(col=8, row=3)
-    lcd.message
+    getch = _Getch()
+    teclaPulsada=getch.__call__()
+    pw.append(teclaPulsada)
 
-    if(salir=="*"):
+    if(teclaPulsada=="*"):
         a=False
         break
     else:
-        lcd.message("hola nico")
-        sleep(2)
-        welcome_banner()
+        lcd.message(pw)
+        #sleep(2)
+        #welcome_banner()
 
-lcd.set_backlight(False)
+
 '''
 
 # Now let's define some more custom characters
@@ -138,7 +141,7 @@ font_data_2 = [
 # Load logo chars from the second set
 lcd.load_custom_chars(font_data_2)
 # display two blocks in columns 5 and 6 (i.e. AFTER col. 4) in row 1
-# first draw two blocks on 5th column (cols 5 and 6), starts from 0
+# first draw  two blocks on 5th column (cols 5 and 6), starts from 0
 lcd.home()
 lcd.message(chr(255)*2)
 
@@ -147,7 +150,9 @@ col = 2
 lcd.set_cursor(col, 0)
 lcd.write_char(1)
 sleep(0.2)
-lcd.set_cursor(col, 0)
+lcd.set_cursor(col, 0)getch = _Getch()
+
+    teclaPulsada=getch.__call__()
 lcd.write_char(2)
 sleep(0.2)
 lcd.set_cursor(col, 0)
@@ -165,7 +170,9 @@ lcd.write_char(1)
 sleep(0.2)
 lcd.set_cursor(col, 0)
 lcd.write_char(2)
-sleep(0.2)
+sleep(0.2)getch = _Getch()
+
+    teclaPulsada=getch.__call__()
 lcd.set_cursor(col, 0)
 lcd.write_char(3)
 lcd.set_cursor(col, 0)
@@ -180,7 +187,9 @@ lcd.load_custom_chars(font_data_1)
 lcd.set_cursor(row=1, col=9)
 lcd.write_char(0)
 lcd.set_cursor(row=1, col=10)
-lcd.write_char(1)
+lcd.write_char(1)getch = _Getch()
+
+    teclaPulsada=getch.__call__()
 lcd.set_cursor(row=1, col=11)
 lcd.write_char(2)
 lcd.set_cursor(row=2, col=9)

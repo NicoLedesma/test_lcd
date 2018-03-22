@@ -43,7 +43,7 @@ def carita():
     lcd.write_char(3)
     lcd.write_char(4)
     lcd.write_char(5)
-    sleep(4)
+    sleep(3)
 
 
 # Welcome banner
@@ -106,11 +106,11 @@ def propaganda():
     lcd.message("     ASISTENCIA    ")
     sleep(4)
 
-#testingLines()
+testingLines()
 
 propaganda()
 
-#carita()
+carita()
 
 welcome_banner()
 
@@ -140,22 +140,30 @@ while(a==True):
         lcd.set_cursor(col=7, row=3)
         lcd.message(pws)
         if(len(pw)>=6):
-            #TODO: chequear que el pw concuerde con algun alumno
-            #TODO: grabar el ingreso o egreso en la base de datos local (sqlite?)
-            #TODO: cargar elnickname de la base de datos
-            nickname = "Nico"
-            pw = []
-            pws = []
-            lcd.clear()
-            lcd.set_cursor(col=1, row=0)
-            sleep(0.3)
-            lcd.message("Bienvenido {}!".format(nickname))
-            #TODO: aca deberia mostrar el nombre del alumno
-            lcd.set_cursor(col=1, row=2)
-            fecha = time.strftime("%d/%m/%y")
-            lcd.message("Hoy es: {}".format(fecha))
-            lcd.set_cursor(col=1, row=3)
-            hora = time.strftime("%H:%M")
-            lcd.message("hora: {}".format(hora))
-            sleep(5)
-            welcome_banner()
+            #try hacerlo con try-catch
+            #TODO: Traer el alumno objeto de la base de datos local a partir de la contrasenia
+            pwFromDB = "1234" #password de la base de datos no haria falta
+            if(pw==pwFromDB): # si existe el alumno haria esto (hay que cambiar esto)
+                #TODO: grabar el ingreso o egreso en la base de datos local (sqlite?)
+                #TODO: cargar elnickname de la base de datos
+                nickname = "Nico"
+                pw = []
+                pws = []
+                lcd.clear()
+                lcd.set_cursor(col=1, row=0)
+                sleep(0.3)
+                lcd.message("Bienvenido {}!".format(nickname))
+                #TODO: aca deberia mostrar el nombre del alumno
+                lcd.set_cursor(col=1, row=2)
+                fecha = time.strftime("%d/%m/%y")
+                lcd.message("Hoy es: {}".format(fecha))
+                lcd.set_cursor(col=1, row=3)
+                hora = time.strftime("%H:%M")
+                lcd.message("hora: {}".format(hora))
+                sleep(5)
+                welcome_banner()
+            else:
+                lcd.clear()
+                lcd.set_cursor(col=0, row=1)
+                lcd.message("Error de contrasenia")
+                welcome_banner()

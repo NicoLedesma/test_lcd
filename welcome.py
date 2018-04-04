@@ -3,10 +3,42 @@
 import RPi_I2C_LCD
 from time import *
 import getCharacter
-import time
+from datetime import *
+from api_client.connector import conn
+from api_client.models import Junior
 
 lcd = RPi_I2C_LCD.LCD()
 lcd.set_backlight(True)
+
+#recupero alumnos from cloud
+juniors_json = conn()
+
+#Si no tengo conexion, levantar un archivo binario guardado en el disco
+
+#creo un array con los alumnos de la clase Junior
+juniors = [] #seria un array de objetos
+for junior in juniors_json:
+    j = Junior(id=junior['id'], nickname=junior['nickname'], code=junior['code'])
+    juniors.append(j)
+
+#comparo el pw ingresado con el guardado en el json
+def junior_exist(pw):
+    for junior in juniors:
+        if(pw == str(junior.code)):
+            present = junior
+    return present
+
+
+'''
+Esta es la idea...
+me conecto a la api. traigo el dic y lo guardo como un archivo binario.
+en el caso que no lo pueda traer lo saca de la ulitma acutalizacion.
+Con esto tengo una variable con todos los alumnos del tipo:
+alumnos = {'695832':'pepito','789658':'josesito'}
+
+si existe alumnos[codigo] obtengo el nickname para mostrar en lcd y guardar el timestamp()
+
+'''
 
 a = True
 # funny face - genero el array con la carita
@@ -22,7 +54,7 @@ font_data_1 = [
     # Char 3 - Lower-left
     [0x12, 0x13, 0x1b, 0x09, 0x04, 0x03, 0x00, 0x00],
     # Char 4 - Lower-middle
-    [0x00, 0x11, 0x1f, 0x1f, 0x0e, 0x00, 0x1F, 0x00],
+    [0x00, 0x11, 0x1f, 0x1f, 0x0e, 0x00, 0x1F, 0x00],sleep
     # Char 5 - Lower-right
     [0x09, 0x19, 0x1b, 0x12, 0x04, 0x18, 0x00, 0x00],
     # Char 6 - my test
@@ -56,7 +88,7 @@ def welcome_banner():
     lcd.message("     PEPECITO'S     ")
     lcd.set_cursor(row=2)
     sleep(1)
-    lcd.message("   Ingrese clave   ")
+    lcd.message("   Ingrese  clave   ")
     lcd.set_cursor(row=3)
     lcd.message("       ------       ")
     sleep(1)
@@ -114,6 +146,7 @@ carita()
 
 welcome_banner()
 
+
 #Para tomar la contrasenia desde el teclado
 getch = getCharacter._Getch()
 pw = ""
@@ -129,24 +162,18 @@ while(a==True):
         lcd.clear()
         lcd.set_cursor(col=5, row=0)
         lcd.message("Chau!!")
-        sleep(0.5)
-        lcd.set_cursor(col=6, row=1)
-        lcd.message("Chau!!")
-        sleep(0.5)
-        lcd.set_cursor(col=7, row=2)
-        lcd.message("Chau!!")
         break
     else:
         lcd.set_cursor(col=7, row=3)
         lcd.message(pws)
         if(len(pw)>=6):
             #try hacerlo con try-catch
-            #TODO: Traer el alumno objeto de la base de datos local a partir de la contrasenia
-            pwFromDB = "123456" #password de la base de datos no haria falta
-            if(pw==pwFromDB): # si existe el alumno haria esto (hay que cambiar esto)
+            junior_presente = junior_exist(pw)
+            if(junior_presente): # si existe el alumno haria esto
                 #TODO: grabar el ingreso o egreso en la base de datos local (sqlite?)
-                #TODO: cargar elnickname de la base de datos
-                nickname = "Nico"
+                
+                nickname = "junio.nickname"
+                fecha_y_hora = datetime.today()
                 lcd.clear()
                 lcd.set_cursor(col=1, row=0)
                 sleep(0.3)
@@ -163,7 +190,7 @@ while(a==True):
             else:
                 lcd.clear()
                 lcd.set_cursor(col=0, row=1)
-                lcd.message("Clave erronea")
+                lcd.message("   Clave  erronea   ")
                 sleep(3)
                 welcome_banner()
             pw = ""

@@ -23,6 +23,7 @@ for junior in juniors_json:
 
 #comparo el pw ingresado con el guardado en el json
 def junior_exist(pw):
+    present= None
     for junior in juniors:
         if(pw == str(junior.code)):
             present = junior
@@ -54,7 +55,7 @@ font_data_1 = [
     # Char 3 - Lower-left
     [0x12, 0x13, 0x1b, 0x09, 0x04, 0x03, 0x00, 0x00],
     # Char 4 - Lower-middle
-    [0x00, 0x11, 0x1f, 0x1f, 0x0e, 0x00, 0x1F, 0x00],sleep
+    [0x00, 0x11, 0x1f, 0x1f, 0x0e, 0x00, 0x1F, 0x00],
     # Char 5 - Lower-right
     [0x09, 0x19, 0x1b, 0x12, 0x04, 0x18, 0x00, 0x00],
     # Char 6 - my test
@@ -133,10 +134,8 @@ def propaganda():
     sleep(1)
     lcd.set_cursor(row=2)
     lcd.message("     SISTEMA DE    ")
-    sleep(1)
     lcd.set_cursor(row=3)
     lcd.message("     ASISTENCIA    ")
-    sleep(4)
 
 #testingLines()
 
@@ -172,7 +171,7 @@ while(a==True):
             if(junior_presente): # si existe el alumno haria esto
                 #TODO: grabar el ingreso o egreso en la base de datos local (sqlite?)
                 
-                nickname = "junio.nickname"
+                nickname = junior_presente.nickname
                 fecha_y_hora = datetime.today()
                 lcd.clear()
                 lcd.set_cursor(col=1, row=0)
@@ -180,10 +179,10 @@ while(a==True):
                 lcd.message("Bienvenido {}!".format(nickname))
                 #TODO: aca deberia mostrar el nombre del alumno
                 lcd.set_cursor(col=1, row=2)
-                fecha = time.strftime("%d/%m/%y")
+                fecha = fecha_y_hora.strftime("%d/%m/%y")
                 lcd.message("Hoy es: {}".format(fecha))
                 lcd.set_cursor(col=1, row=3)
-                hora = time.strftime("%H:%M")
+                hora = fecha_y_hora.strftime("%H:%M")
                 lcd.message("hora: {}".format(hora))
                 sleep(5)
                 welcome_banner()

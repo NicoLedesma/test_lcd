@@ -1,1 +1,5 @@
-este es un archivo de pruebas para ver como git maneja los cambios
+este es un archivo de pruebas para ver como git maneja los cambios.
+
+Ahora agregmos otra linea!!
+
+Chau!
